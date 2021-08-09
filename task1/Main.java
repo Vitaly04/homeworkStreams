@@ -1,18 +1,26 @@
 package homework.streams.task1;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         List<Integer> intList = Arrays.asList(1, 2, 5, 16, -1, -2, 0, 32, 3, 5, 8, 23, 4);
-        List<Integer> resultList = new ArrayList<>();
-        for (int i = 0; i < intList.size(); i++) {
-            if (intList.get(i) > 0 && intList.get(i) % 2 == 0) resultList.add(intList.get(i));
+        int count = 0;
+
+        for (Integer value : intList) {
+            if (value > 0 && value % 2 == 0) {
+                count++;
+            }
         }
-        resultList.sort(Comparator.naturalOrder());
-        System.out.println(resultList.toString());
+
+        Integer[] resultArray = new Integer[count];
+        count = 0;
+
+            for (Integer integer: intList) {
+                if (integer > 0 && integer % 2 == 0) resultArray[count++] = integer;
+            }
+
+        Arrays.sort(resultArray);
+        System.out.println(Arrays.toString(resultArray));
     }
 }

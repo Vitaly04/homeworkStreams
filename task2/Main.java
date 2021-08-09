@@ -28,15 +28,15 @@ public class Main {
 
         List<String> result1 = persons.stream()
                 .filter(value -> value.getSex() == Sex.MAN)
-                .filter(x -> x.getAge() > 18 && x.getAge() < 27)
+                .filter(x -> x.getAge() >= 18 && x.getAge() < 27)
                 .map(value -> value.getFamily())
                 .collect(Collectors.toList());
         System.out.println(result1);
 
         Predicate<Person> man = p -> p.getSex() == Sex.MAN;
         Predicate<Person> woman = p -> p.getSex() == Sex.WOMAN;
-        Predicate<Person> rangeAgeMen = p -> p.getAge() > 18 && p.getAge() < 65;
-        Predicate<Person> rangeAgeWomen = p -> p.getAge() > 18 && p.getAge() < 60;
+        Predicate<Person> rangeAgeMen = p -> p.getAge() >= 18 && p.getAge() < 65;
+        Predicate<Person> rangeAgeWomen = p -> p.getAge() >= 18 && p.getAge() < 60;
 
         List<String> result2 = persons.stream()
                 .filter(value -> value.getEducation() == Education.HIGHER)
